@@ -5,6 +5,7 @@
 package prueba1_progra2;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -12,25 +13,18 @@ import java.util.Date;
  * @author josuc
  */
 public abstract class BlockBusterItem {
-    private int codigo;
-    private String Nombre;
-    private double PrecioRenta;
-    private Date fecha;
+    protected int codigo;
+    protected String Nombre;
+    protected double PrecioRenta;
+    protected LocalDate fecha;
     
     public BlockBusterItem (int codigo, String Nombre, double PrecioRenta) {
         this.codigo = codigo;
         this.Nombre = Nombre;
         this.PrecioRenta = PrecioRenta;
-        fecha = new Date();
-        toStringFecha();
-    }
-    
-    public String toStringFecha() {     
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        return formato.format(fecha);
+        fecha = LocalDate.now();
     }
 
-    @Override
     public String toString() {
         return "Codigo= " + codigo + "\nNombre= " + Nombre + "\nPreciode Renta= " + PrecioRenta;
     }
